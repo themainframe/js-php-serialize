@@ -16,7 +16,7 @@ var serialize = (v, options) => {
         } else if (isNaN(v)) {
             ret = 'd:NAN;';
         } else {
-            ret = 'd:' + v.toFixed(16) + ';';
+            ret = 'd:' + (typeof v === 'string' ? parseFloat(v).toFixed(16) : v.toFixed(16)) + ';';
         }
     } else if (typeof v === "string") {
         ret = "s:" + Buffer.byteLength(v, 'utf8') + ':"' + v + '";';

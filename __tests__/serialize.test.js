@@ -8,6 +8,9 @@ it ('serializes primitives', () => {
     expect(php.serialize(2)).toEqual('i:2;');
     expect(php.serialize(-2)).toEqual('i:-2;');
     expect(php.serialize(3.14)).toEqual('d:3.1400000000000001;');
+    expect(php.serialize("3.14")).toEqual('d:3.1400000000000001;');
+    expect(php.serialize("-3.741111111111111")).toEqual('d:-3.7411111111111111;');
+    expect(php.serialize("51.33305555555556")).toEqual('d:51.3330555555555605;');
     expect(php.serialize("hello")).toEqual('s:5:"hello";');
     expect(php.serialize("Köln")).toEqual('s:5:"Köln";');
     expect(php.serialize("0")).toEqual('i:0;');
